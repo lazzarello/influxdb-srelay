@@ -28,7 +28,7 @@ RUN apk update && \
     apk add git
 
 # Install
-RUN go get -u github.com/toni-moreno/influxdb-srelay && \
+RUN go get -u github.com/lazzarello/influxdb-srelay && \
     mv /go/bin/influxdb-srelay /usr/bin/influxdb-srelay && \
     chmod 755 /usr/bin/influxdb-srelay && \
     mkdir /etc/influxdb-srelay && \
@@ -37,7 +37,7 @@ RUN go get -u github.com/toni-moreno/influxdb-srelay && \
 FROM alpine:latest
 
 COPY --from=build-env /usr/bin/influxdb-srelay /
-COPY --from=build-env /go/src/github.com/toni-moreno/influxdb-srelay/example/sample.influxdb-srelay.conf /etc/influxdb-srelay/
+COPY --from=build-env /go/src/github.com/lazzarello/influxdb-srelay/example/sample.influxdb-srelay.conf /etc/influxdb-srelay/
 RUN mkdir -p /var/log/influxdb-srelay
 
 ENTRYPOINT [ "/usr/bin/influxdb-srelay" ]

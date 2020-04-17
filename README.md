@@ -5,7 +5,7 @@
 
 Debian | RedHat |Docker
 -------|--------|------
-[deb](http://influxdb-srelay-rel.s3.amazonaws.com/builds/influxdb-srelay_latest_amd64.deb) - [signature](http://influxdb-srelay-rel.s3.amazonaws.com/builds/influxdb-srelay_latest_amd64.deb.sha1)|[rpm](http://influxdb-srelay-rel.s3.amazonaws.com/builds/influxdb-srelay-latest.x86_64.rpm) - [signature](http://influxdb-srelay-rel.s3.amazonaws.com/builds/influxdb-srelay-latest.x86_64.rpm.sha1)| `docker run -d --name=influxdb-srelay_instance00 -p 9096:9096 -v /mylocal/conf:/opt/influxdb-srelay/conf -v /mylocal/log:/opt/influxdb-srelay/log  tonimoreno/influxdb-srelay`
+[deb](http://influxdb-srelay-rel.s3.amazonaws.com/builds/influxdb-srelay_latest_amd64.deb) - [signature](http://influxdb-srelay-rel.s3.amazonaws.com/builds/influxdb-srelay_latest_amd64.deb.sha1)|[rpm](http://influxdb-srelay-rel.s3.amazonaws.com/builds/influxdb-srelay-latest.x86_64.rpm) - [signature](http://influxdb-srelay-rel.s3.amazonaws.com/builds/influxdb-srelay-latest.x86_64.rpm.sha1)| `docker run -d --name=influxdb-srelay_instance00 -p 9096:9096 -v /mylocal/conf:/etc/influxdb-srelay/conf -v /mylocal/log:/var/log/influxdb-srelay/log  tonimoreno/influxdb-srelay`
 
 [![License][license-img]][license-href]
 
@@ -57,6 +57,7 @@ cp ${GOPATH}/src/github.com/toni-moreno/influxdb-srelay/examples/sample.influxdb
 ```
 
 ### Docker
+ Use the pre-built image with the configuration file as the correct filename.
 
 Build your own image need for docker-ce > 17.05 ( or equivalent ee version )
 
